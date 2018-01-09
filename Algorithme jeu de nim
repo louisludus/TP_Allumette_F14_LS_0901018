@@ -1,0 +1,73 @@
+Algorithme jeu de nim
+
+//BUT: Le jeu de nim est un jeu à deux joueurs ou le but est de retirer tour à tour de 1 à 3 allumettes d'un alignement de 21 allumetes, sachant que celui pui prendras la dernière allumette perdras la partie.
+
+//PRINCIPE: On connais le nombre d'aallumettes de départ (21) on sait également le qu'un joueur ne peut retirer que de 1 à 3 allumettes par tour avant de passer sont tour.
+
+//ENTREE: Le nombre d'allumettes que veux retirer chaque joueurs.
+
+//SORTIE: Le nombre d'allumettes restant ainsi que, le cas échéant le gagnant et le perdant.
+
+CONST
+FIN <- 0
+MODTOUR <- 2
+ALLUMETTESMAX <- 21
+
+
+
+
+	
+
+
+PROCEDURE VERIFICATION (correct : ENTIER)
+	
+	DEBUT
+
+	TANT QUE(correct <1 OU >3) FAIRE
+	ECRIRE "veuillez rentrer un nombre d'allumettes compris enntre 1 et 3 allumettes"
+	LIRE correct
+
+	FIN PROCEDURE
+
+
+PROCEDURE NIM
+VAR
+nbrestant,tour, nballumettes,joueur:ENTIER
+
+
+DEBUT
+joueur<-1
+nbrestant<-ALLUMETTESMAX
+tour<-FIN
+nballumettes<-FIN
+
+
+	ECRIRE "Bienvenu sur le jeu de nim chaque joueur devras retirer tour à tour de une à 3 allumettes des 21 de départ, celui ramassant la dernière allumettes sera déclaré perdant."
+
+	REPETEZ
+		SI tour MOD modtour=fin ALORS
+			joueur<-2
+		SINON
+			joueur<-1
+
+		ECRIRE "c'est le tour du joueur",joueur, "veulliez choisir un nombre d'allumettes à retirer entre 1 et 3"
+		LIRE nballumettes
+		VERIFICATION(nballumettes")
+		nbrestant<-nbrestant-nballumettes
+		tour<-tour+1
+
+		
+
+	JUSQU'A (nbrestant<=fin)
+	Ecrire joueur,"A perdu la partie"
+	FIN
+
+
+
+
+
+
+
+
+
+
