@@ -52,7 +52,7 @@ BEGIN
 	tour:=tour+1;
 
 	UNTIL (nbrestant=UN);
-	writeln (joueur,'A perdu la partie');
+	writeln (joueur,'A gagner la partie');
 	readln;
 
 END.
