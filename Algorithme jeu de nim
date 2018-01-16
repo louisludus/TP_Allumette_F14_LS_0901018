@@ -1,36 +1,31 @@
-Algorithme jeu de nim
 
-//BUT: Le jeu de nim est un jeu à deux joueurs ou le but est de retirer tour à tour de 1 à 3 allumettes d'un alignement de 21 allumetes, sachant que celui pui prendras la dernière allumette perdras la partie.
+Algorithme jeu_de_nim_version_joueur_contre_joueur
 
-//PRINCIPE: On connais le nombre d'aallumettes de départ (21) on sait également le qu'un joueur ne peut retirer que de 1 à 3 allumettes par tour avant de passer sont tour.
+//BUT: Le jeu de nim est un jeu à deux joueurs ou le but est de retirer tour à tour de 1 à 3 allumettes d'un alignement de 21 allumettes, sachant que celui pui prendras la dernière allumette perdras la partie.
+
+//PRINCIPE: On connais le nombre d'allumettes de départ (21) on sait également  qu'un joueur ne peut retirer que de 1 à 3 allumettes par tour avant de passer sont tour.
 
 //ENTREE: Le nombre d'allumettes que veux retirer chaque joueurs.
 
 //SORTIE: Le nombre d'allumettes restant ainsi que, le cas échéant le gagnant et le perdant.
 
 CONST
-FIN <- 0
+ZERO <- 0
 MODTOUR <- 2
 ALLUMETTESMAX <- 21
+UN <- 1
 
 
-
-
-	
-
-
-PROCEDURE VERIFICATION (correct : ENTIER)
+PROCEDURE VERIFICATION (VAR correct : ENTIER)
 	
 	DEBUT
 
-	TANT QUE(correct <1 OU >3) FAIRE
+	TANT QUE(correct >1 OU <3) FAIRE
 	ECRIRE "veuillez rentrer un nombre d'allumettes compris enntre 1 et 3 allumettes"
 	LIRE correct
 
 	FIN PROCEDURE
 
-
-PROCEDURE NIM
 VAR
 nbrestant,tour, nballumettes,joueur:ENTIER
 
@@ -38,8 +33,8 @@ nbrestant,tour, nballumettes,joueur:ENTIER
 DEBUT
 joueur<-1
 nbrestant<-ALLUMETTESMAX
-tour<-FIN
-nballumettes<-FIN
+tour<-ZERO
+nballumettes<-ZERO
 
 
 	ECRIRE "Bienvenu sur le jeu de nim chaque joueur devras retirer tour à tour de une à 3 allumettes des 21 de départ, celui ramassant la dernière allumettes sera déclaré perdant."
@@ -54,15 +49,109 @@ nballumettes<-FIN
 		LIRE nballumettes
 		VERIFICATION(nballumettes")
 		nbrestant<-nbrestant-nballumettes
+		ECRIRE "Il reste",nbrestant,"allumettes"
 		tour<-tour+1
 
 		
 
-	JUSQU'A (nbrestant<=fin)
+	JUSQU'A (nbrestant<=UN)
 	Ecrire joueur,"A perdu la partie"
+	
+FIN
+
+
+
+
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+
+
+
+
+Algorithme jeu_de_nim_joueur_contre_IA
+
+//BUT Jouer au jeu de nim contre une IA,le but est de retirer tour à tour de 1 à 3 allumettes d'un alignement de 21 allumettes, sachant que celui pui prendras la dernière allumette perdras la partie.
+
+//PRINCIPE: On connais le nombre d'allumettes de départ (21) on sait également que le joueur ne peut retirer que de 1 à 3 allumettes par tour avant de passer sont tour.
+
+//ENTREE: Le nombre d'allumettes que veux retirer le joueurs.
+
+//SORTIE: Le nombre d'allumettes restant ainsi que, le cas échéant le gagnant et le perdant.
+
+CONST
+ZERO <- 0
+MODPARFAIT <- 4
+ALLUMETTESMAX <- 21
+UN <- 1
+
+
+
+
+	
+
+
+PROCEDURE VERIFICATION (VAR correct : ENTIER)
+	
+	DEBUT
+
+	TANT QUE(correct >=1 OU <=3) FAIRE
+	ECRIRE "veuillez rentrer un nombre d'allumettes compris enntre 1 et 3 allumettes"
+	LIRE correct
+
+	FIN PROCEDURE
+
+
+VAR
+nbrestant, nballumettes,IA :ENTIER
+
+
+DEBUT
+nbrestant<-ALLUMETTESMAX
+nballumettes<-ZERO
+IA<- ZERO
+
+
+	ECRIRE "Bienvenu sur le jeu de nim chaque joueur devras retirer tour à tour de une à 3 allumettes des 21 de départ, celui ramassant la dernière allumettes sera déclaré perdant."
+
+	REPETER
+
+		SI (nbrestant-nballumettes <=UN) ALORS
+		 	ECRIRE"L'ordinateur vous as battu"
+		FIN SI
+		ECRIRE "c'est le tour du joueur, veulliez choisir un nombre d'allumettes à retirer entre 1 et 3"
+		LIRE nballumettes
+		VERIFICATION(nballumettes)
+		nbrestant<-nbrestant-nballumettes
+
+		SI (nbrestant-nballumettes<=UN) ALORS
+			ECRIRE"Vous avez gagné"
+		FIN SI
+		ECRIRE "c'est le tour de l'ordinateur"
+		IA <- nbaléa(0à2)+UN //On donne une valeur aléatoire comprise entre 1 et 3
+		VERIFICATION(IA)
+		ECRIRE "L'ordinateur retire",IA,"allumettes il reste",nbrestant,"allumettes"
+
+
+		
+
+		
+
+	JUSQU'A (nbrestant<=UN)
 	FIN
-
-
 
 
 
