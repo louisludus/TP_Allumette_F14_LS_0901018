@@ -1,0 +1,146 @@
+Program Jeu_de_nim_1C1;
+USES crt;
+
+CONST
+	ZERO=0;
+	ALLUMETTESMAX=21;
+	MODTOUR=2;
+	UN=1;
+
+procedure VERIFICATION (VAR correct:integer);
+BEGIN
+	WHILE ((correct <1) OR (correct>3)) DO
+	BEGIN
+		writeln('veuillez rentrer un nombre d''allumettes compris enntre 1 et 3 allumettes');
+		writeln(' ');
+		readln (correct);
+	END;
+END;
+
+
+///////////////////////////////
+
+
+VAR
+	correct,nbrestant,tour,joueur,nballumettes:integer;
+
+BEGIN
+	clrscr;
+	nbrestant:=ALLUMETTESMAX;
+	joueur:=UN;
+	tour:=ZERO;
+	nballumettes:=ZERO;
+
+	writeln ('Bienvenu sur le jeu de nim chaque joueurs devras retirer tout à tour de une à 3 allumettes');
+	writeln(' ');
+	REPEAT
+		IF (tour MOD modtour=ZERO) THEN
+		BEGIN
+			joueur:=1
+		END
+		ELSE IF (tour MOD modtour<>ZERO) THEN
+		BEGIN
+			joueur:=2
+		END;
+
+	writeln ('c''est le tour du joueur',joueur,'veulliez choisir un nombre d''allumettes à retirez');
+	readln (nballumettes);
+	VERIFICATION(nballumettes);
+	nbrestant:=nbrestant-nballumettes;
+	writeln('il reste',nbrestant,'allumettes');
+	writeln(' ');
+	tour:=tour+1;
+
+	UNTIL (nbrestant=UN);
+	writeln (joueur,'A perdu la partie');
+	readln;
+
+END.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+PROGRAM Jeu_Allumette_JvsIA;
+
+USES crt;
+
+//BUT : Jeux d'allumette où l'on retire des allumettes les unes après les autres, il faut absolument retirer la dèrnière allumette pour gagner.
+
+//Principe : On a la valeur initiale du tas d'allumette(21), le joueur alterne avec la machine dans une boucle répéter pour retirer 1,2 ou 3 allumettes, 
+			//si le joueur retire l'allumettes en dernier, il gagne sinon, il perds.
+
+//ENTREES : le nombre d'allumettes à soustraire.
+
+//SORTIES : Le nombre d'allumettes restantes et le détenteurs de la victoire.
+
+
+CONST
+ZERO = 0;
+MODTOUR = 2;
+ALLUMETTESMAX = 21;
+UN = 1;
+
+VAR
+nbrestant,tour, nballumettes,joueur,ia : INTEGER;
+
+PROCEDURE VERIFICATION (VAR correct : INTEGER);
+	
+	BEGIN
+
+	While ((correct <1) OR (correct>3)) DO
+	Begin
+	writeln ('veuillez rentrer un nombre d allumettes compris enntre 1 et 3 allumettes');
+	readln (correct);
+	End;
+
+	END;
+
+BEGIN
+nbrestant:=ALLUMETTESMAX;
+nballumettes:=ZERO;
+ia:=ZERO;
+
+writeln ('Bienvenue sur le jeu de nim chaque joueur devras retirer tour à tour de une à 3 allumettes des 21 de départ, celui ramassant la dernière allumettes sera déclaré perdant.');
+writeln (' ');
+	REPEAT
+
+		IF (nbrestant-nballumettes <=UN) THEN
+		begin
+		 	writeln('L ordinateur vous as battu.');
+		end;
+		writeln ('c est le tour du joueur, veulliez choisir un nombre d allumettes à retirer entre 1 et 3');
+		writeln(' ');
+		readln (nballumettes);
+		VERIFICATION(nballumettes);
+		nbrestant:=nbrestant-nballumettes;
+		writeln('il reste:',nbrestant,'allumettes');
+		writeln(' ');
+
+		IF (nbrestant-nballumettes<=UN) THEN
+		begin
+			writeln('Vous avez gagné');
+		end;
+		writeln('c est le tour de l ordinateur');
+		writeln(' ');
+		randomize;
+		ia:=random(3)+1;//On donne une valeur aléatoire comprise entre 1 et 3
+		VERIFICATION(ia);
+		nbrestant:=nbrestant-ia;
+		writeln ('L''ordinateur retire',ia,'allumettes il reste',nbrestant,'allumettes.');
+		writeln(' ');
+		readkey;
+
+
+
+
+
+		
+
+		
+
+	UNTIL (nbrestant<=UN);
+
+
+		readkey;
+	END.
