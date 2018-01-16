@@ -105,7 +105,7 @@ writeln ('Bienvenue sur le jeu de nim chaque joueur devras retirer tour à tour 
 writeln (' ');
 	REPEAT
 
-		IF (nbrestant-nballumettes <=UN) THEN
+		IF (nbrestant-ia <=UN) THEN
 		begin
 		 	writeln('L ordinateur vous as battu.');
 			readln;
