@@ -65,7 +65,7 @@ nballumettes<-ZERO
 		
 
 	JUSQU'A (nbrestant<=UN)
-	Ecrire joueur,"A perdu la partie"
+	Ecrire joueur,"A gagner la partie"
 	
 FIN
 
