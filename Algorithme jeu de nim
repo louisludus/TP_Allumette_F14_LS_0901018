@@ -140,9 +140,9 @@ IA<- ZERO
 
 	REPETER
 
-		SI (nbrestant-nballumettes <=UN) ALORS
+		SI (nbrestant-ia <=UN) ALORS
 		 	ECRIRE"L'ordinateur vous as battu"
-		FIN SI
+		SINON
 		ECRIRE "c'est le tour du joueur, veulliez choisir un nombre d'allumettes à retirer entre 1 et 3"
 		LIRE nballumettes
 		VERIFICATION(nballumettes)
@@ -156,7 +156,7 @@ IA<- ZERO
 		VERIFICATION(IA)
 		nbrestant<-nbrestant-IA
 		ECRIRE "L'ordinateur retire",IA,"allumettes il reste",nbrestant,"allumettes"
-
+		FIN SI
 
 		
 
