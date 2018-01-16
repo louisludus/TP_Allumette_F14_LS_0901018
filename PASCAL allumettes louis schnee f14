@@ -108,7 +108,10 @@ writeln (' ');
 		IF (nbrestant-nballumettes <=UN) THEN
 		begin
 		 	writeln('L ordinateur vous as battu.');
-		end;
+			readln;
+		end
+		else
+		begin
 		writeln ('c est le tour du joueur, veulliez choisir un nombre d allumettes à retirer entre 1 et 3');
 		writeln(' ');
 		readln (nballumettes);
@@ -120,6 +123,7 @@ writeln (' ');
 		IF (nbrestant-nballumettes<=UN) THEN
 		begin
 			writeln('Vous avez gagné');
+			readln;
 		end;
 		writeln('c est le tour de l ordinateur');
 		writeln(' ');
@@ -130,6 +134,7 @@ writeln (' ');
 		writeln ('L''ordinateur retire',ia,'allumettes il reste',nbrestant,'allumettes.');
 		writeln(' ');
 		readkey;
+		end;
 
 
 
